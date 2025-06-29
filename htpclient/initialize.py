@@ -167,8 +167,8 @@ class Initialize:
                 voucher = input("No token found! Please enter a voucher to register your agent:\n").strip()
 
             name = platform.node()
-            if(config.get_value('forced_name')):
-                name = config.get_value('forced_name')
+            if(self.config.get_value('forced_name')):
+                name = self.config.get_value('forced_name')
 
             query = dict_register.copy()
             query['voucher'] = voucher
