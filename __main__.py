@@ -140,6 +140,8 @@ def init(args):
         CONFIG.set_value('zaps-path', os.path.abspath(args.zaps_path))
     if args.preprocessors_path and len(args.preprocessors_path):
         CONFIG.set_value('preprocessors-path', os.path.abspath(args.preprocessors_path))
+    if args.forced_name and len(args.forced_name):
+        CONFIG.set_value('forced_name', args.forced_name)
 
     logging.info("Starting client '" + Initialize.get_version() + "'...")
 
@@ -326,6 +328,7 @@ if __name__ == "__main__":
     parser.add_argument('--disable-update', action='store_true', help='disable retrieving auto-updates of the client from the server')
     parser.add_argument('--debug', '-d', action='store_true', help='enforce debugging output')
     parser.add_argument('--voucher', type=str, required=False, help='voucher to use to automatically register')
+    parser.add_argument('--forced-name', type=str, required=False, help='force a specific machine name')
     parser.add_argument('--url', type=str, required=False, help='URL to Hashtopolis client API')
     parser.add_argument('--cert', type=str, required=False, help='Client TLS cert bundle for Hashtopolis client API')
     parser.add_argument('--files-path', type=str, required=False, help='Use given folder path as files location')
